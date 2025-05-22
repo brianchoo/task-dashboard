@@ -5,7 +5,7 @@ export const useTaskModal = () => {
   const [showNewTask, setShowNewTask] = useState(false);
   const { isOpen, openModal, closeModal } = useModal();
 
-  const handleAddNewTask = () => {
+  const handleAddNewTaskModal = () => {
     setShowNewTask(true);
     openModal();
   };
@@ -14,7 +14,7 @@ export const useTaskModal = () => {
     openModal();
   };
 
-  const handleCancelNewTask = () => {
+  const handleCancelTaskModal = () => {
     setShowNewTask(false);
     closeModal();
   };
@@ -22,8 +22,8 @@ export const useTaskModal = () => {
   return {
     showNewTask,
     isOpenModal: isOpen,
-    handleAddNewTask,
+    handleAddNewTaskModal,
     handleEditTaskModal,
-    handleCancelNewTask,
+    handleCancelTaskModal,
   };
 };

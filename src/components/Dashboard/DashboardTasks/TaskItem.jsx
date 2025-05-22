@@ -63,7 +63,7 @@ const TaskItem = ({ id, text, completed }) => {
   const [editingTaskId, setEditingTaskId] = useState(null);
   const [editingTaskText, setEditingTaskText] = useState("");
   const { tasks, handleDelete, handleToggle } = useContext(TasksContext);
-  const { isOpenModal, handleEditTaskModal, handleCancelNewTask } =
+  const { isOpenModal, handleEditTaskModal, handleCancelTaskModal } =
     useTaskModal();
 
   const handleTaskItemEdit = (id) => {
@@ -95,7 +95,7 @@ const TaskItem = ({ id, text, completed }) => {
         taskId={editingTaskId}
         initialText={editingTaskText}
         isOpenModal={isOpenModal}
-        onCancel={handleCancelNewTask}
+        onCancel={handleCancelTaskModal}
       />
     </TaskItemContainer>
   );

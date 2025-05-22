@@ -18,15 +18,19 @@ const TaskManagerContainer = styled.div`
 `;
 
 const TaskManager = () => {
-  const { showNewTask, isOpenModal, handleAddNewTask, handleCancelNewTask } =
-    useTaskModal();
+  const {
+    showNewTask,
+    isOpenModal,
+    handleAddNewTaskModal,
+    handleCancelTaskModal,
+  } = useTaskModal();
 
   return (
     <TaskManagerContainer>
       {!showNewTask ? (
-        <NoTask onAddTask={handleAddNewTask} />
+        <NoTask onAddTask={handleAddNewTaskModal} />
       ) : (
-        <NewTask isOpenModal={isOpenModal} onCancel={handleCancelNewTask} />
+        <NewTask isOpenModal={isOpenModal} onCancel={handleCancelTaskModal} />
       )}
     </TaskManagerContainer>
   );

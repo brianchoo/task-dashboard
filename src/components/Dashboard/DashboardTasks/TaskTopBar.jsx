@@ -99,7 +99,8 @@ const Button = styled.button`
 `;
 
 function TaskTopBar({ searchTerm, handleSearchChange }) {
-  const { isOpenModal, handleAddNewTask, handleCancelNewTask } = useTaskModal();
+  const { isOpenModal, handleAddNewTaskModal, handleCancelTaskModal } =
+    useTaskModal();
 
   return (
     <TopBarContainer>
@@ -114,9 +115,9 @@ function TaskTopBar({ searchTerm, handleSearchChange }) {
             onChange={handleSearchChange}
           />
         </SearchInputContainer>
-        <Button onClick={handleAddNewTask}>+ New Task</Button>
+        <Button onClick={handleAddNewTaskModal}>+ New Task</Button>
       </ActionsContainer>
-      <NewTask isOpenModal={isOpenModal} onCancel={handleCancelNewTask} />
+      <NewTask isOpenModal={isOpenModal} onCancel={handleCancelTaskModal} />
     </TopBarContainer>
   );
 }
