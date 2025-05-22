@@ -79,9 +79,6 @@ const LoginForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (e) {
-      e.preventDefault();
-    }
     login(id, name);
   };
 
@@ -89,7 +86,7 @@ const LoginForm = () => {
     <LoginContainer>
       <LoginCard>
         <Title>Login</Title>
-        <form>
+        <form onSubmit={handleSubmit}>
           {error && <ErrorMessage>{error}</ErrorMessage>}
           <Input
             type="text"
@@ -105,7 +102,7 @@ const LoginForm = () => {
             onChange={(e) => setName(e.target.value)}
             disabled={loading}
           />
-          <Button onClick={handleSubmit} disabled={loading}>
+          <Button type="submit" disabled={loading}>
             {loading ? <LoadingSpinner /> : "Login"}
           </Button>
         </form>

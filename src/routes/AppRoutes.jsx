@@ -11,11 +11,13 @@ const AppRoutes = () => {
     <Routes>
       <Route path="/login" element={<Login />} />
       <Route path="/" element={<Layout />}>
-        {isLoggedIn ? (
-          <Route path="/dashboard" element={<Dashboard />} />
-        ) : (
-          <Route path="*" element={<Navigate to="/login" replace />} />
-        )}
+        <Route
+          index
+          element={
+            <Navigate to={isLoggedIn ? "/dashboard" : "/login"} replace />
+          }
+        />
+        {isLoggedIn && <Route path="/dashboard" element={<Dashboard />} />}
       </Route>
     </Routes>
   );

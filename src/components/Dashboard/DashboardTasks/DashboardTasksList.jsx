@@ -8,7 +8,6 @@ const DashboardTasksList = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
   const handleSearchChange = (e) => {
-    console.log(e.target.value);
     setSearchTerm(e.target.value);
   };
 
