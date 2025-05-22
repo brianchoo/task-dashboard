@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import Card from "../Card/Card";
 import DashboardTasksCards from "./DashboardCards/DashboardTasksCards";
+import DashboardTasksList from "./DashboardTasks/DashboardTasksList";
 
 const MainDashboardCardsContainer = styled.div`
   display: flex;
@@ -12,12 +12,25 @@ const MainDashboardCardsContainer = styled.div`
   }
 `;
 
+const MainDashboardTasksContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+
+  @media (min-width: 1024px) {
+    margin-top: 40px;
+  }
+`;
+
 const MainDashboard = () => {
   return (
     <>
       <MainDashboardCardsContainer>
         <DashboardTasksCards />
       </MainDashboardCardsContainer>
+      <MainDashboardTasksContainer>
+        <DashboardTasksList />
+      </MainDashboardTasksContainer>
     </>
   );
 };

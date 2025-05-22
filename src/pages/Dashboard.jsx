@@ -14,7 +14,6 @@ const DashboardContainer = styled.div`
     max-width: 960px;
     margin: 30px auto 0;
     min-height: calc(100vh - 72px);
-    flex-direction: row;
   }
 `;
 

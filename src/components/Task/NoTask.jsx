@@ -10,6 +10,7 @@ const NoTaskCard = styled.div`
   box-shadow: 0px 3px 6px #00000029;
   height: 160px;
   margin-top: 20px;
+  box-sizing: border-box;
 
   @media (min-width: 768px) {
     margin: 0 auto;
