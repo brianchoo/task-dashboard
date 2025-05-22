@@ -10,6 +10,10 @@ export const useNewTaskModal = () => {
     openModal();
   };
 
+  const handleEditTaskModal = () => {
+    openModal();
+  };
+
   const handleCancelNewTask = () => {
     setShowNewTask(false);
     closeModal();
@@ -19,6 +23,7 @@ export const useNewTaskModal = () => {
     showNewTask,
     isOpenModal: isOpen,
     handleAddNewTask,
+    handleEditTaskModal,
     handleCancelNewTask,
   };
 };

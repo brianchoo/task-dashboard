@@ -1,10 +1,11 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import styled from "styled-components";
 import EditIcon from "../../../assets/svg/pen-solid.svg";
 import DeleteIcon from "../../../assets/svg/trash-solid.svg";
 import { TasksContext } from "../../../context/tasksContext";
 import { useNewTaskModal } from "../../../hooks/useNewTaskModal";
 import NewTask from "../../Task/NewTask";
+import EditTask from "../../Task/EditTask";
 
 const TaskItemContainer = styled.div`
   display: flex;
@@ -59,15 +60,21 @@ const ActionButton = styled.button`
   }
 `;
 
-const TaskItem = ({ id, text, completed, onToggle, onEdit, onDelete }) => {
-  const { handleDelete, handleToggle, handleEdit } = useContext(TasksContext);
-  const { isOpenModal, handleAddNewTask, handleCancelNewTask } =
+const TaskItem = ({ id, text, completed }) => {
+  const [editingTaskId, setEditingTaskId] = useState(null);
+  const [editingTaskText, setEditingTaskText] = useState("");
+  const { tasks, handleDelete, handleToggle } = useContext(TasksContext);
+  const { isOpenModal, handleEditTaskModal, handleCancelNewTask } =
     useNewTaskModal();
 
-  // const handleTaskItemEdit = (id, taskText) => {
-  //   handleAddNewTask();
-  //   handleEdit(id, taskText);
-  // };
+  const handleTaskItemEdit = (id) => {
+    const taskToEdit = tasks.find((task) => task.id === id);
+    if (taskToEdit) {
+      setEditingTaskId(taskToEdit.id);
+      setEditingTaskText(taskToEdit.text);
+      handleEditTaskModal();
+    }
+  };
 
   return (
     <TaskItemContainer>
@@ -78,17 +85,19 @@ const TaskItem = ({ id, text, completed, onToggle, onEdit, onDelete }) => {
       />
       <TaskText completed={completed}>{text}</TaskText>
       <ActionButtons>
-        <ActionButton
-          // onClick={() => handleTaskItemEdit(id, text)}
-          type="button"
-        >
+        <ActionButton onClick={() => handleTaskItemEdit(id)} type="button">
           <img src={EditIcon} alt="Edit" />
         </ActionButton>
         <ActionButton onClick={() => handleDelete(id)} type="button">
           <img src={DeleteIcon} alt="Delete" />
         </ActionButton>
       </ActionButtons>
-      <NewTask isOpenModal={isOpenModal} onCancel={handleCancelNewTask} />
+      <EditTask
+        taskId={editingTaskId}
+        initialText={editingTaskText}
+        isOpenModal={isOpenModal}
+        onCancel={handleCancelNewTask}
+      />
     </TaskItemContainer>
   );
 };

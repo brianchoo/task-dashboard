@@ -81,7 +81,9 @@ const NewTask = ({ isOpenModal, onCancel }) => {
           value={taskText}
           onChange={(e) => setTaskText(e.target.value)}
         />
-        <Button onClick={handleSubmitTask}>+ New Task</Button>
+        <Button onClick={handleSubmitTask} disabled={!taskText}>
+          + New Task
+        </Button>
       </NewTaskCard>
     </Modal>
   );

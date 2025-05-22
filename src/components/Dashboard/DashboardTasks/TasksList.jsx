@@ -12,7 +12,7 @@ const TasksListInner = styled.div`
   flex-direction: column;
 `;
 
-const TasksList = ({ tasks, onEdit, onDelete, onToggle }) => {
+const TasksList = ({ tasks }) => {
   return (
     <TaskListContainer>
       <TasksListInner>
@@ -24,9 +24,6 @@ const TasksList = ({ tasks, onEdit, onDelete, onToggle }) => {
                 id={task.id}
                 text={task.text}
                 completed={task.completed}
-                onToggle={onToggle}
-                onEdit={onEdit}
-                onDelete={onDelete}
               />
             ))}
       </TasksListInner>
