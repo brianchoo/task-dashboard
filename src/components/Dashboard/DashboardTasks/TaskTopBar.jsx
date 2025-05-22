@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import SearchMagnifyingGlass from "../../../assets/svg/search-solid.svg";
 
 const breakpoints = {
   mobile: "768px",
@@ -14,6 +15,7 @@ const TopBarContainer = styled.div`
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    padding: 12px 0;
   }
 `;
 
@@ -38,6 +40,19 @@ const ActionsContainer = styled.div`
     width: unset;
     gap: 12px;
   }
+`;
+
+const SearchInputContainer = styled.div`
+  position: relative;
+`;
+
+const MagnifyingGlassImage = styled.img`
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
 `;
 
 const SearchInput = styled.input`
@@ -89,7 +104,10 @@ function TaskTopBar() {
     <TopBarContainer>
       <TaskHeading>Tasks</TaskHeading>
       <ActionsContainer>
-        <SearchInput type="text" placeholder="Search by task name" />
+        <SearchInputContainer>
+          <MagnifyingGlassImage src={SearchMagnifyingGlass} alt="Search Icon" />
+          <SearchInput type="text" placeholder="Search by task name" />
+        </SearchInputContainer>
         <Button>+ New Task</Button>
       </ActionsContainer>
     </TopBarContainer>
