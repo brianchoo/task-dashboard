@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import SearchMagnifyingGlass from "../../../assets/svg/search-solid.svg";
-import { useNewTaskModal } from "../../../hooks/useNewTaskModal";
+import { useTaskModal } from "../../../hooks/useTaskModal";
 import NewTask from "../../Task/NewTask";
 import { BREAKPOINT } from "../../../constants/breakpoints";
 
@@ -99,8 +99,7 @@ const Button = styled.button`
 `;
 
 function TaskTopBar({ searchTerm, handleSearchChange }) {
-  const { isOpenModal, handleAddNewTask, handleCancelNewTask } =
-    useNewTaskModal();
+  const { isOpenModal, handleAddNewTask, handleCancelNewTask } = useTaskModal();
 
   return (
     <TopBarContainer>

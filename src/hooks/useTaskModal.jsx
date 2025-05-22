@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useModal } from "./useModal";
 
-export const useNewTaskModal = () => {
+export const useTaskModal = () => {
   const [showNewTask, setShowNewTask] = useState(false);
   const { isOpen, openModal, closeModal } = useModal();
 

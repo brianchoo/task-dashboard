@@ -1,7 +1,7 @@
 import NoTask from "./NoTask";
 import NewTask from "./NewTask";
 import styled from "styled-components";
-import { useNewTaskModal } from "../../hooks/useNewTaskModal";
+import { useTaskModal } from "../../hooks/useTaskModal";
 import { BREAKPOINT } from "../../constants/breakpoints";
 
 const TaskManagerContainer = styled.div`
@@ -19,7 +19,7 @@ const TaskManagerContainer = styled.div`
 
 const TaskManager = () => {
   const { showNewTask, isOpenModal, handleAddNewTask, handleCancelNewTask } =
-    useNewTaskModal();
+    useTaskModal();
 
   return (
     <TaskManagerContainer>
