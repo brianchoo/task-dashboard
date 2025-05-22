@@ -11,13 +11,6 @@ function App() {
     <AuthProvider>
       <TaskProvider>
         <BrowserRouter>
-          {/* <Routes>
-            <Route path="/" element={<Layout />}>
-              <Route path="/login" element={<Login />} />
-              <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="*" element={<Navigate to="/login" replace />} />
-            </Route>
-          </Routes> */}
           <AppRoutes />
         </BrowserRouter>
       </TaskProvider>

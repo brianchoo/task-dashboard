@@ -1,5 +1,5 @@
-import React from "react";
 import styled from "styled-components";
+import { BREAKPOINT } from "../../constants/breakpoints";
 
 const CardContainer = styled.div`
   background-color: #ffffff;
@@ -10,7 +10,7 @@ const CardContainer = styled.div`
   width: 100%;
   box-sizing: border-box;
 
-  @media (min-width: 768px) {
+  @media (min-width: ${BREAKPOINT.MD}) {
     width: 300px;
     border-radius: 12px;
     height: 160px;

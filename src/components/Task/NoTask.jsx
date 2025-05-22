@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { BREAKPOINT } from "../../constants/breakpoints";
 
 const NoTaskCard = styled.div`
   display: flex;
@@ -12,7 +13,7 @@ const NoTaskCard = styled.div`
   margin-top: 20px;
   box-sizing: border-box;
 
-  @media (min-width: 768px) {
+  @media (min-width: ${BREAKPOINT.MD}) {
     margin: 0 auto;
     max-width: 300px;
     border-radius: 12px;
@@ -31,7 +32,7 @@ const Title = styled.div`
   color: #537178;
   margin-bottom: 24px;
 
-  @media (min-width: 768px) {
+  @media (min-width: ${BREAKPOINT.MD}) {
     font-size: 24px;
   }
 `;

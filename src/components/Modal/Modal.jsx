@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { createPortal } from "react-dom";
 import styled from "styled-components";
+import { BREAKPOINT } from "../../constants/breakpoints";
 
 const BackdropContainer = styled.div`
   position: fixed;
@@ -29,7 +30,7 @@ const ModalContainer = styled.div`
   width: 90%;
   z-index: 50;
 
-  @media (min-width: 768px) {
+  @media (min-width: ${BREAKPOINT.MD}) {
     top: 50%;
     max-width: 300px;
   }

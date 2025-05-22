@@ -4,15 +4,14 @@ import { useAuth } from "../hooks/useAuth";
 import LoginForm from "../components/Login/LoginForm";
 
 const Login = () => {
-  const { user } = useAuth();
+  const { user, isLoggedIn } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (user) {
-      console.log("login navigate");
+    if (user || isLoggedIn) {
       navigate("/dashboard");
     }
-  }, [user, navigate]);
+  }, [user, isLoggedIn, navigate]);
 
   return <LoginForm />;
 };

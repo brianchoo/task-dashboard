@@ -2,13 +2,14 @@ import NoTask from "./NoTask";
 import NewTask from "./NewTask";
 import styled from "styled-components";
 import { useNewTaskModal } from "../../hooks/useNewTaskModal";
+import { BREAKPOINT } from "../../constants/breakpoints";
 
 const TaskManagerContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
 
-  @media (min-width: 1024px) {
+  @media (min-width: ${BREAKPOINT.MD}) {
     width: 300px;
     margin: 0 auto;
     min-height: calc(100vh - 144px);

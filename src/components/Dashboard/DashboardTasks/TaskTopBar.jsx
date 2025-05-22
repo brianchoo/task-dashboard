@@ -2,10 +2,7 @@ import styled from "styled-components";
 import SearchMagnifyingGlass from "../../../assets/svg/search-solid.svg";
 import { useNewTaskModal } from "../../../hooks/useNewTaskModal";
 import NewTask from "../../Task/NewTask";
-
-const breakpoints = {
-  mobile: "768px",
-};
+import { BREAKPOINT } from "../../../constants/breakpoints";
 
 const TopBarContainer = styled.div`
   display: flex;
@@ -13,7 +10,7 @@ const TopBarContainer = styled.div`
   align-items: flex-start;
   padding: 12px 16px;
 
-  @media (min-width: ${breakpoints.mobile}) {
+  @media (min-width: ${BREAKPOINT.MD}) {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
@@ -26,7 +23,7 @@ const TaskHeading = styled.div`
   color: #537178;
   margin-bottom: 16px;
 
-  @media (min-width: ${breakpoints.mobile}) {
+  @media (min-width: ${BREAKPOINT.MD}) {
     margin-bottom: 0;
   }
 `;
@@ -37,7 +34,7 @@ const ActionsContainer = styled.div`
   width: 100%;
   gap: 10px;
 
-  @media (min-width: ${breakpoints.mobile}) {
+  @media (min-width: ${BREAKPOINT.MD}) {
     flex-direction: row;
     width: unset;
     gap: 12px;
@@ -76,7 +73,7 @@ const SearchInput = styled.input`
     border-color: #5285ec;
   }
 
-  @media (min-width: ${breakpoints.mobile}) {
+  @media (min-width: ${BREAKPOINT.MD}) {
     width: 244px;
   }
 `;
@@ -92,7 +89,7 @@ const Button = styled.button`
   cursor: pointer;
   transition: background-color 0.2s;
 
-  @media (min-width: ${breakpoints.mobile}) {
+  @media (min-width: ${BREAKPOINT.MD}) {
     width: 124px;
   }
 

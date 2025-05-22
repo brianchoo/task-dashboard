@@ -2,6 +2,7 @@ import { useState, useContext, useEffect } from "react";
 import styled from "styled-components";
 import Modal from "../Modal/Modal";
 import { TasksContext } from "../../context/tasksContext";
+import { BREAKPOINT } from "../../constants/breakpoints";
 
 const NewTaskCard = styled.div`
   display: flex;
@@ -16,7 +17,7 @@ const Title = styled.div`
   color: #537178;
   margin-bottom: 24px;
 
-  @media (min-width: 768px) {
+  @media (min-width: ${BREAKPOINT.MD}) {
     font-size: 24px;
   }
 `;

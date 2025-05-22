@@ -5,11 +5,7 @@ import Dashboard from "../pages/Dashboard";
 import Layout from "../layouts/layout";
 
 const AppRoutes = () => {
-  const { isLoggedIn, loading } = useAuth();
-
-  if (loading) {
-    return <div>Loading...</div>;
-  }
+  const { isLoggedIn } = useAuth();
 
   return (
     <Routes>

@@ -5,12 +5,13 @@ import { useAuth } from "../hooks/useAuth";
 import TaskManager from "../components/Task/TaskManager";
 import { TasksContext } from "../context/tasksContext";
 import MainDashboard from "../components/Dashboard/MainDashboard";
+import { BREAKPOINT } from "../constants/breakpoints";
 
 const DashboardContainer = styled.div`
   display: flex;
   margin-top: 10px;
   flex-direction: column;
-  @media (min-width: 1024px) {
+  @media (min-width: ${BREAKPOINT.MD}) {
     max-width: 960px;
     margin: 30px auto 0;
     min-height: calc(100vh - 72px);
@@ -25,10 +26,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     if (!user && !isLoggedIn) {
-      console.log("dashboard navigate");
       navigate("/login");
-    } else {
-      navigate("/dashboard");
     }
   }, [user, isLoggedIn, navigate]);
 

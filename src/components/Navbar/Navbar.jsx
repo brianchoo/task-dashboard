@@ -2,6 +2,7 @@ import { useNavigate } from "react-router";
 import { useAuth } from "../../hooks/useAuth";
 import styled from "styled-components";
 import UserImage from "../../assets/images/guy.png";
+import { BREAKPOINT } from "../../constants/breakpoints";
 
 const Nav = styled.nav`
   background-color: #ffffff;
@@ -12,7 +13,7 @@ const Nav = styled.nav`
   height: 72px;
   padding: 12px 24px;
 
-  @media (min-width: 768px) {
+  @media (min-width: ${BREAKPOINT.MD}) {
     padding: 0;
   }
 `;
@@ -47,7 +48,7 @@ const Username = styled.span`
   color: #6d8187;
   font-size: 16px;
 
-  @media (min-width: 768px) {
+  @media (min-width: ${BREAKPOINT.MD}) {
     font-size: 19px;
   }
 `;
@@ -60,7 +61,7 @@ const LogoutButton = styled.button`
   font-size: 16px;
   cursor: pointer;
 
-  @media (min-width: 768px) {
+  @media (min-width: ${BREAKPOINT.MD}) {
     font-size: 19px;
   }
 
