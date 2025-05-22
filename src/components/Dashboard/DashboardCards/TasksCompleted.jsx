@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import Card from "../../Card/Card";
+import { TasksContext } from "../../../context/tasksContext";
+import { useContext } from "react";
 
 const Title = styled.div`
   font-size: 20px;
@@ -26,13 +28,15 @@ const Denominator = styled.span`
 `;
 
 const TaskCompleted = () => {
+  const { tasks } = useContext(TasksContext);
+  const completedTasksCount = tasks.filter((task) => task.completed).length;
   return (
     <>
       <Card>
         <Title>Task Completed</Title>
         <FractionContainer>
-          <Numerator>5</Numerator>
-          <Denominator>/20</Denominator>
+          <Numerator>{completedTasksCount}</Numerator>
+          <Denominator>/{tasks.length}</Denominator>
         </FractionContainer>
       </Card>
     </>
