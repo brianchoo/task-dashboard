@@ -20,8 +20,30 @@ export const TaskProvider = ({ children }) => {
     });
   };
 
+  const handleToggle = (id) => {
+    setTasks(
+      tasks.map((task) =>
+        task.id === id ? { ...task, completed: !task.completed } : task
+      )
+    );
+  };
+
+  const handleEdit = (id, newText) => {
+    setTasks((prevTasks) =>
+      prevTasks.map((task) =>
+        task.id === id ? { ...task, text: newText } : task
+      )
+    );
+  };
+
+  const handleDelete = (id) => {
+    setTasks(tasks.filter((task) => task.id !== id));
+  };
+
   return (
-    <TasksContext.Provider value={{ tasks, handleAddTask }}>
+    <TasksContext.Provider
+      value={{ tasks, handleAddTask, handleToggle, handleDelete, handleEdit }}
+    >
       {children}
     </TasksContext.Provider>
   );

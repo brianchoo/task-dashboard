@@ -101,16 +101,22 @@ const Button = styled.button`
   }
 `;
 
-function TaskTopBar() {
+function TaskTopBar({ searchTerm, handleSearchChange }) {
   const { isOpenModal, handleAddNewTask, handleCancelNewTask } =
     useNewTaskModal();
+
   return (
     <TopBarContainer>
       <TaskHeading>Tasks</TaskHeading>
       <ActionsContainer>
         <SearchInputContainer>
           <MagnifyingGlassImage src={SearchMagnifyingGlass} alt="Search Icon" />
-          <SearchInput type="text" placeholder="Search by task name" />
+          <SearchInput
+            type="text"
+            placeholder="Search by task name"
+            value={searchTerm}
+            onChange={handleSearchChange}
+          />
         </SearchInputContainer>
         <Button onClick={handleAddNewTask}>+ New Task</Button>
       </ActionsContainer>

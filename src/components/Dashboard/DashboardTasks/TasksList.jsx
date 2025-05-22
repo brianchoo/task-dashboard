@@ -16,12 +16,12 @@ const TasksList = ({ tasks, onEdit, onDelete, onToggle }) => {
   return (
     <TaskListContainer>
       <TasksListInner>
-        {tasks.map((todo) => (
+        {tasks.map((task) => (
           <TaskItem
-            key={todo.id}
-            id={todo.id}
-            text={todo.text}
-            completed={todo.completed}
+            key={task.id}
+            id={task.id}
+            text={task.text}
+            completed={task.completed}
             onToggle={onToggle}
             onEdit={onEdit}
             onDelete={onDelete}

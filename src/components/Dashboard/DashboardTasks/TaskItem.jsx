@@ -1,6 +1,10 @@
+import { useContext } from "react";
 import styled from "styled-components";
 import EditIcon from "../../../assets/svg/pen-solid.svg";
 import DeleteIcon from "../../../assets/svg/trash-solid.svg";
+import { TasksContext } from "../../../context/tasksContext";
+import { useNewTaskModal } from "../../../hooks/useNewTaskModal";
+import NewTask from "../../Task/NewTask";
 
 const TaskItemContainer = styled.div`
   display: flex;
@@ -56,22 +60,35 @@ const ActionButton = styled.button`
 `;
 
 const TaskItem = ({ id, text, completed, onToggle, onEdit, onDelete }) => {
+  const { handleDelete, handleToggle, handleEdit } = useContext(TasksContext);
+  const { isOpenModal, handleAddNewTask, handleCancelNewTask } =
+    useNewTaskModal();
+
+  // const handleTaskItemEdit = (id, taskText) => {
+  //   handleAddNewTask();
+  //   handleEdit(id, taskText);
+  // };
+
   return (
     <TaskItemContainer>
       <Checkbox
         type="checkbox"
         checked={completed}
-        onChange={() => onToggle(id)}
+        onChange={() => handleToggle(id)}
       />
       <TaskText completed={completed}>{text}</TaskText>
       <ActionButtons>
-        <ActionButton onClick={() => onEdit(id)} type="button">
+        <ActionButton
+          // onClick={() => handleTaskItemEdit(id, text)}
+          type="button"
+        >
           <img src={EditIcon} alt="Edit" />
         </ActionButton>
-        <ActionButton onClick={() => onDelete(id)} type="button">
+        <ActionButton onClick={() => handleDelete(id)} type="button">
           <img src={DeleteIcon} alt="Delete" />
         </ActionButton>
       </ActionButtons>
+      <NewTask isOpenModal={isOpenModal} onCancel={handleCancelNewTask} />
     </TaskItemContainer>
   );
 };
