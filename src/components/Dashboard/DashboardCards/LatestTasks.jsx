@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import Card from "../../Card/Card";
+import { useContext } from "react";
+import { TasksContext } from "../../../context/tasksContext";
 
 const Title = styled.div`
   font-size: 20px;
@@ -46,20 +48,27 @@ const TaskText = styled.span`
 `;
 
 const LatestTasks = () => {
+  const { tasks } = useContext(TasksContext);
+  const latestTasks = tasks.slice(0, 3);
+
   return (
     <>
       <Card>
         <Title>Latest Created Tasks</Title>
         <TaskList>
-          <TaskItem>
-            <TaskText>Clean the room</TaskText>
-          </TaskItem>
-          <TaskItem>
-            <TaskText>Buy some vegetables, chicken & ...</TaskText>
-          </TaskItem>
-          <TaskItem>
-            <TaskText className="completed">Reinstall windows on PC</TaskText>
-          </TaskItem>
+          {latestTasks.length > 0 ? (
+            latestTasks.map((task) => (
+              <TaskItem key={task.id}>
+                <TaskText className={task.completed ? "completed" : ""}>
+                  {task?.text}
+                </TaskText>
+              </TaskItem>
+            ))
+          ) : (
+            <TaskItem>
+              <TaskText>No tasks created yet</TaskText>
+            </TaskItem>
+          )}
         </TaskList>
       </Card>
     </>
