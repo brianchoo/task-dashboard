@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import SearchMagnifyingGlass from "../../../assets/svg/search-solid.svg";
+import { useNewTaskModal } from "../../../hooks/useNewTaskModal";
+import NewTask from "../../Task/NewTask";
 
 const breakpoints = {
   mobile: "768px",
@@ -100,6 +102,8 @@ const Button = styled.button`
 `;
 
 function TaskTopBar() {
+  const { isOpenModal, handleAddNewTask, handleCancelNewTask } =
+    useNewTaskModal();
   return (
     <TopBarContainer>
       <TaskHeading>Tasks</TaskHeading>
@@ -108,8 +112,9 @@ function TaskTopBar() {
           <MagnifyingGlassImage src={SearchMagnifyingGlass} alt="Search Icon" />
           <SearchInput type="text" placeholder="Search by task name" />
         </SearchInputContainer>
-        <Button>+ New Task</Button>
+        <Button onClick={handleAddNewTask}>+ New Task</Button>
       </ActionsContainer>
+      <NewTask isOpenModal={isOpenModal} onCancel={handleCancelNewTask} />
     </TopBarContainer>
   );
 }

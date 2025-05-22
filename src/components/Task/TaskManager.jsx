@@ -1,8 +1,7 @@
-import { useState } from "react";
 import NoTask from "./NoTask";
 import NewTask from "./NewTask";
-import { useModal } from "../../hooks/useModal";
 import styled from "styled-components";
+import { useNewTaskModal } from "../../hooks/useNewTaskModal";
 
 const TaskManagerContainer = styled.div`
   display: flex;
@@ -18,25 +17,15 @@ const TaskManagerContainer = styled.div`
 `;
 
 const TaskManager = () => {
-  const [showNewTask, setShowNewTask] = useState(false);
-  const { isOpen, openModal, closeModal } = useModal();
-
-  const handleAddNewTask = () => {
-    setShowNewTask(true);
-    openModal();
-  };
-
-  const handleCancelNewTask = () => {
-    setShowNewTask(false);
-    closeModal();
-  };
+  const { showNewTask, isOpenModal, handleAddNewTask, handleCancelNewTask } =
+    useNewTaskModal();
 
   return (
     <TaskManagerContainer>
       {!showNewTask ? (
         <NoTask onAddTask={handleAddNewTask} />
       ) : (
-        <NewTask isOpenModal={isOpen} onCancel={handleCancelNewTask} />
+        <NewTask isOpenModal={isOpenModal} onCancel={handleCancelNewTask} />
       )}
     </TaskManagerContainer>
   );

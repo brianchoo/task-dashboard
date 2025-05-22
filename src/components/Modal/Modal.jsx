@@ -26,12 +26,12 @@ const ModalContainer = styled.div`
   border-radius: 12px;
   box-shadow: 0px 3px 6px #00000029;
   padding: 24px;
-  max-width: 300px;
-  width: 100%;
+  width: 90%;
   z-index: 50;
 
   @media (min-width: 768px) {
     top: 50%;
+    max-width: 300px;
   }
 `;
 
