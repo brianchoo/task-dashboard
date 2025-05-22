@@ -1,4 +1,5 @@
 import { createContext, useState, useEffect } from "react";
+import { saveUserSession, clearUserSession } from "../utils/sessionStorage";
 
 export const AuthContext = createContext();
 
@@ -10,8 +11,15 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const storedStatus = sessionStorage.getItem("isLoggedIn");
+    const storedUserName = sessionStorage.getItem("userName");
+    const storedUserId = sessionStorage.getItem("userId");
     if (storedStatus === "true") {
       setIsLoggedIn(true);
+      if (storedUserName && storedUserId) {
+        setUser({ id: storedUserId, name: storedUserName });
+      } else {
+        setUser({ name: storedUserName });
+      }
     }
     setLoading(false);
   }, []);
@@ -21,14 +29,14 @@ export const AuthProvider = ({ children }) => {
     setError(null);
 
     try {
-      // await new Promise((resolve) => setTimeout(resolve, 1000));
+      await new Promise((resolve) => setTimeout(resolve, 1000));
 
       if (!id.trim() || !name.trim()) {
         throw new Error("ID and Name are required");
       }
 
       setUser({ id, name });
-      sessionStorage.setItem("isLoggedIn", "true");
+      saveUserSession(id, name);
       setIsLoggedIn(true);
       return true;
     } catch (err) {
@@ -39,12 +47,10 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  console.log(user, "user");
-
   const logout = () => {
     setUser(null);
     setIsLoggedIn(false);
-    sessionStorage.removeItem("isLoggedIn");
+    clearUserSession();
   };
 
   return (

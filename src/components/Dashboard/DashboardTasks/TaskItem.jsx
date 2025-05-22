@@ -4,7 +4,6 @@ import EditIcon from "../../../assets/svg/pen-solid.svg";
 import DeleteIcon from "../../../assets/svg/trash-solid.svg";
 import { TasksContext } from "../../../context/tasksContext";
 import { useNewTaskModal } from "../../../hooks/useNewTaskModal";
-import NewTask from "../../Task/NewTask";
 import EditTask from "../../Task/EditTask";
 
 const TaskItemContainer = styled.div`

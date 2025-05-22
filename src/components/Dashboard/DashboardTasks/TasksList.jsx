@@ -17,7 +17,7 @@ const TasksList = ({ tasks }) => {
     <TaskListContainer>
       <TasksListInner>
         {tasks?.length === 0
-          ? "Please Search Again"
+          ? "No task found."
           : tasks.map((task) => (
               <TaskItem
                 key={task.id}
