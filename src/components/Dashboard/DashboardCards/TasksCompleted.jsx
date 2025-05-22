@@ -5,7 +5,7 @@ import { useContext } from "react";
 
 const Title = styled.div`
   font-size: 20px;
-  color: #537178;
+  color: var(--color-dark-green);
   margin-bottom: 12px;
 `;
 
@@ -16,7 +16,7 @@ const FractionContainer = styled.div`
 
 const Numerator = styled.span`
   font-size: 64px;
-  color: #4285f4;
+  color: var(--color-blue);
   font-weight: normal;
   position: relative;
   top: -5px;

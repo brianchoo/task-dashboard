@@ -20,7 +20,7 @@ const TopBarContainer = styled.div`
 
 const TaskHeading = styled.div`
   font-size: 20px;
-  color: #537178;
+  color: var(--color-dark-green);
   margin-bottom: 16px;
 
   @media (min-width: ${BREAKPOINT.MD}) {
@@ -59,18 +59,18 @@ const SearchInput = styled.input`
   border: 1px solid #d9dfeb;
   border-radius: 8px;
   font-size: 14px;
-  color: #7a7d7e;
+  color: var(--color-dark-grey);
   outline: none;
   width: 100%;
   background: #d9dfeb 0% 0% no-repeat padding-box;
   padding-left: 40px;
 
   &::placeholder {
-    color: #7a7d7e;
+    color: var(--color-dark-grey);
   }
 
   &:focus {
-    border-color: #5285ec;
+    border-color: var(--color-blue);
   }
 
   @media (min-width: ${BREAKPOINT.MD}) {
@@ -81,7 +81,7 @@ const SearchInput = styled.input`
 const Button = styled.button`
   width: 100%;
   padding: 12px;
-  background-color: #5285ec;
+  background-color: var(--color-blue);
   color: white;
   border: none;
   border-radius: 6px;

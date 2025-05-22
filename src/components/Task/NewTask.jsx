@@ -14,7 +14,7 @@ const NewTaskCard = styled.div`
 
 const Title = styled.div`
   font-size: 20px;
-  color: #537178;
+  color: var(--color-dark-green);
   margin-bottom: 24px;
 
   @media (min-width: ${BREAKPOINT.MD}) {
@@ -26,7 +26,7 @@ const Button = styled.button`
   width: 100%;
   margin: 0 auto;
   padding: 12px;
-  background-color: #5285ec;
+  background-color: var(--color-blue);
   color: white;
   border: none;
   border-radius: 6px;
@@ -50,14 +50,14 @@ const Input = styled.input`
   margin-bottom: 16px;
   border: none;
   border-radius: 8px;
-  background-color: #eef1f8;
-  color: #7a7d7e;
+  background-color: var(--color-grey);
+  color: var(--color-dark-grey);
   font-size: 14px;
   box-sizing: border-box;
 
   &:focus {
     outline: none;
-    box-shadow: 0 0 0 2px #5285ec;
+    box-shadow: 0 0 0 2px var(--color-blue);
   }
 `;
 

@@ -15,7 +15,7 @@ const PieChart = styled.div`
   border-radius: 50%;
   background: ${(props) => `conic-gradient(
     #5285EC 0deg ${props.completedDegrees}deg,
-    #E5E5E5 ${props.completedDegrees}deg 360deg
+    #E8ECEC ${props.completedDegrees}deg 360deg
   )`};
 `;
 

@@ -5,7 +5,7 @@ import { TasksContext } from "../../../context/tasksContext";
 
 const Title = styled.div`
   font-size: 20px;
-  color: #537178;
+  color: var(--color-dark-green);
   margin-bottom: 12px;
 `;
 

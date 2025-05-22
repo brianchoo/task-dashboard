@@ -1,9 +1,7 @@
-import Login from "./pages/Login";
-import Dashboard from "./pages/Dashboard";
-import Layout from "./layouts/layout";
+import GlobalStyles from "./styles/GlobalStyles";
 import { AuthProvider } from "./context/authContext";
 import { TaskProvider } from "./context/tasksContext";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router";
+import { BrowserRouter } from "react-router";
 import AppRoutes from "./routes/AppRoutes";
 
 function App() {
@@ -11,6 +9,7 @@ function App() {
     <AuthProvider>
       <TaskProvider>
         <BrowserRouter>
+          <GlobalStyles />
           <AppRoutes />
         </BrowserRouter>
       </TaskProvider>

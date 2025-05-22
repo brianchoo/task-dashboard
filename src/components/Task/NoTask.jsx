@@ -29,7 +29,7 @@ const NoTaskCardInner = styled.div`
 
 const Title = styled.div`
   font-size: 20px;
-  color: #537178;
+  color: var(--color-dark-green);
   margin-bottom: 24px;
 
   @media (min-width: ${BREAKPOINT.MD}) {
@@ -41,7 +41,7 @@ const Button = styled.button`
   width: 124px;
   margin: 0 auto;
   padding: 12px;
-  background-color: #5285ec;
+  background-color: var(--color-blue);
   color: white;
   border: none;
   border-radius: 6px;

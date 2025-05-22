@@ -22,7 +22,7 @@ const Checkbox = styled.input`
   height: 20px;
   margin-right: 16px;
   cursor: pointer;
-  accent-color: #4285f4;
+  accent-color: var(--color-blue);
 `;
 
 const TaskText = styled.span`
