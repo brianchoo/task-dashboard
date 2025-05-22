@@ -53,7 +53,6 @@ const Modal = ({ isOpen, onClose, children }) => {
 
   useEffect(() => {
     const handleEscapeKey = (e) => {
-      console.log("pressed");
       if (e.keyCode === 27 && isOpen) {
         onClose();
       }

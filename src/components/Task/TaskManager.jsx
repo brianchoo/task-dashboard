@@ -1,5 +1,5 @@
 import NoTask from "./NoTask";
-import NewTask from "./NewTask";
+import TaskModal from "./TaskModal";
 import styled from "styled-components";
 import { useTaskModal } from "../../hooks/useTaskModal";
 import { BREAKPOINT } from "../../constants/breakpoints";
@@ -30,7 +30,11 @@ const TaskManager = () => {
       {!showNewTask ? (
         <NoTask onAddTask={handleAddNewTaskModal} />
       ) : (
-        <NewTask isOpenModal={isOpenModal} onCancel={handleCancelTaskModal} />
+        <TaskModal
+          mode="add"
+          isOpenModal={isOpenModal}
+          onCancel={handleCancelTaskModal}
+        />
       )}
     </TaskManagerContainer>
   );

@@ -1,10 +1,10 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import styled from "styled-components";
 import Modal from "../Modal/Modal";
 import { TasksContext } from "../../context/tasksContext";
 import { BREAKPOINT } from "../../constants/breakpoints";
 
-const NewTaskCard = styled.div`
+const TaskCard = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -61,33 +61,57 @@ const Input = styled.input`
   }
 `;
 
-const NewTask = ({ isOpenModal, onCancel }) => {
+const TaskModal = ({
+  isOpenModal,
+  onCancel,
+  mode = "add",
+  taskId = null,
+  initialText = "",
+}) => {
   const [taskText, setTaskText] = useState("");
-  const { handleAddTask } = useContext(TasksContext);
+  const { handleAddTask, handleEdit } = useContext(TasksContext);
 
-  const handleSubmitTask = () => {
+  const isEditMode = mode === "edit";
+
+  useEffect(() => {
+    if (isEditMode) {
+      setTaskText(initialText || "");
+    } else {
+      setTaskText("");
+    }
+  }, [initialText, isEditMode, isOpenModal]);
+
+  const handleSubmit = () => {
     if (taskText.trim() !== "") {
-      handleAddTask(taskText);
+      if (isEditMode) {
+        handleEdit(taskId, taskText);
+      } else {
+        handleAddTask(taskText);
+      }
       setTaskText("");
       onCancel();
     }
   };
+
+  const title = isEditMode ? "Edit Task" : "+ New Task";
+  const buttonText = isEditMode ? "Edit Task" : "+ New Task";
+
   return (
     <Modal isOpen={isOpenModal} onClose={onCancel}>
-      <NewTaskCard>
-        <Title>+ New Task</Title>
+      <TaskCard>
+        <Title>{title}</Title>
         <Input
           type="text"
           placeholder="Task Name"
           value={taskText}
           onChange={(e) => setTaskText(e.target.value)}
         />
-        <Button onClick={handleSubmitTask} disabled={!taskText}>
-          + New Task
+        <Button onClick={handleSubmit} disabled={!taskText}>
+          {buttonText}
         </Button>
-      </NewTaskCard>
+      </TaskCard>
     </Modal>
   );
 };
 
-export default NewTask;
+export default TaskModal;

@@ -4,7 +4,7 @@ import EditIcon from "../../../assets/svg/pen-solid.svg";
 import DeleteIcon from "../../../assets/svg/trash-solid.svg";
 import { TasksContext } from "../../../context/tasksContext";
 import { useTaskModal } from "../../../hooks/useTaskModal";
-import EditTask from "../../Task/EditTask";
+import TaskModal from "../../Task/TaskModal";
 
 const TaskItemContainer = styled.div`
   display: flex;
@@ -91,9 +91,10 @@ const TaskItem = ({ id, text, completed }) => {
           <img src={DeleteIcon} alt="Delete" />
         </ActionButton>
       </ActionButtons>
-      <EditTask
+      <TaskModal
         taskId={editingTaskId}
         initialText={editingTaskText}
+        mode="edit"
         isOpenModal={isOpenModal}
         onCancel={handleCancelTaskModal}
       />

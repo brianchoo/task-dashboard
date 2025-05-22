@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import SearchMagnifyingGlass from "../../../assets/svg/search-solid.svg";
 import { useTaskModal } from "../../../hooks/useTaskModal";
-import NewTask from "../../Task/NewTask";
+import TaskModal from "../../Task/TaskModal";
 import { BREAKPOINT } from "../../../constants/breakpoints";
 
 const TopBarContainer = styled.div`
@@ -117,7 +117,11 @@ function TaskTopBar({ searchTerm, handleSearchChange }) {
         </SearchInputContainer>
         <Button onClick={handleAddNewTaskModal}>+ New Task</Button>
       </ActionsContainer>
-      <NewTask isOpenModal={isOpenModal} onCancel={handleCancelTaskModal} />
+      <TaskModal
+        mode="add"
+        isOpenModal={isOpenModal}
+        onCancel={handleCancelTaskModal}
+      />
     </TopBarContainer>
   );
 }
