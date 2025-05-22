@@ -18,16 +18,19 @@ const DashboardContainer = styled.div`
 `;
 
 const Dashboard = () => {
-  const { user } = useAuth();
+  const { user, isLoggedIn } = useAuth();
   const { tasks } = useContext(TasksContext);
 
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!user) {
+    if (!user && !isLoggedIn) {
+      console.log("dashboard navigate");
       navigate("/login");
+    } else {
+      navigate("/dashboard");
     }
-  }, [user, navigate]);
+  }, [user, isLoggedIn, navigate]);
 
   return (
     <DashboardContainer>

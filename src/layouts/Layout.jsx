@@ -10,18 +10,18 @@ const LayoutContainer = styled.div`
 `;
 
 const Layout = () => {
-  const { user } = useAuth();
-  const navigate = useNavigate();
+  // const { user } = useAuth();
+  // const navigate = useNavigate();
 
-  useEffect(() => {
-    if (!user) {
-      navigate("/login");
-    }
-  }, [user, navigate]);
+  // useEffect(() => {
+  //   if (!user) {
+  //     navigate("/login");
+  //   }
+  // }, [user, navigate]);
 
   return (
     <LayoutContainer>
-      {user && <Navbar />}
+      <Navbar />
       <main>
         <Outlet />
       </main>
