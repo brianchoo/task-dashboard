@@ -12,15 +12,12 @@ export const AuthProvider = ({ children }) => {
     setError(null);
 
     try {
-      // Simulate API call with timeout
       await new Promise((resolve) => setTimeout(resolve, 1000));
 
-      // Validate inputs
       if (!id.trim() || !name.trim()) {
         throw new Error("ID and Name are required");
       }
 
-      // Set user data
       setUser({ id, name });
       return true;
     } catch (err) {
@@ -30,6 +27,8 @@ export const AuthProvider = ({ children }) => {
       setLoading(false);
     }
   };
+
+  console.log(user, "user");
 
   const logout = () => {
     setUser(null);

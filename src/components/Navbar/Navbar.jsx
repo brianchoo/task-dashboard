@@ -22,7 +22,7 @@ const NavInner = styled.nav`
   align-items: center;
   justify-content: space-between;
   border-radius: 0.5rem;
-  width: 1200px;
+  width: 960px;
 `;
 
 const UserInfo = styled.div`
@@ -85,7 +85,7 @@ const Navbar = () => {
           <Avatar>
             <AvatarImage src={UserImage} alt="User" />
           </Avatar>
-          <Username>{user?.username || "Guest"}</Username>
+          <Username>{user?.name || "Guest"}</Username>
         </UserInfo>
         <LogoutButton onClick={handleLogout}>Logout</LogoutButton>
       </NavInner>

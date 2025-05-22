@@ -6,6 +6,7 @@ import Navbar from "../components/Navbar/Navbar";
 
 const LayoutContainer = styled.div`
   min-height: 100vh;
+  background: #f4f4f6;
 `;
 
 const Layout = () => {
