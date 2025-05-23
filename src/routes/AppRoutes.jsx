@@ -19,6 +19,10 @@ const AppRoutes = () => {
         />
         {isLoggedIn && <Route path="/dashboard" element={<Dashboard />} />}
       </Route>
+      <Route
+        path="*"
+        element={<Navigate to={isLoggedIn ? "/dashboard" : "/login"} replace />}
+      />
     </Routes>
   );
 };
