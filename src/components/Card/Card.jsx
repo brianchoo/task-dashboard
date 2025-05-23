@@ -3,7 +3,7 @@ import { BREAKPOINT } from "../../constants/breakpoints";
 
 const CardContainer = styled.div`
   background-color: #ffffff;
-  padding: 24px;
+  padding: 24px 32px;
   box-shadow: 0px 3px 6px #0000000a;
   display: flex;
   flex-direction: column;
@@ -14,6 +14,7 @@ const CardContainer = styled.div`
     width: 300px;
     border-radius: 12px;
     height: 160px;
+    padding: 24px;
   }
 `;
 

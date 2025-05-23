@@ -7,8 +7,8 @@ import { BREAKPOINT } from "../../../constants/breakpoints";
 const TopBarContainer = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  padding: 12px 16px;
+  align-items: center;
+  padding: 12px 16px 16px;
 
   @media (min-width: ${BREAKPOINT.MD}) {
     flex-direction: row;

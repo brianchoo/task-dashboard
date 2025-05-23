@@ -1,10 +1,15 @@
 import styled from "styled-components";
 import TaskItem from "./TaskItem";
+import { BREAKPOINT } from "../../../constants/breakpoints";
 
 const TaskListContainer = styled.div`
   background: #ffffff;
-  border-radius: 12px;
+  border-radius: 0;
   padding: 0 16px;
+
+  @media (min-width: ${BREAKPOINT.MD}) {
+    border-radius: 12px;
+  }
 `;
 
 const TasksListInner = styled.div`

@@ -2,6 +2,7 @@ import { useState } from "react";
 import styled from "styled-components";
 import { useAuth } from "../../hooks/useAuth";
 import LoadingSpinner from "../LodingSpinner";
+import { BREAKPOINT } from "../../constants/breakpoints";
 
 const LoginContainer = styled.div`
   display: flex;
@@ -18,8 +19,13 @@ const LoginCard = styled.div`
   border-radius: 12px;
   padding: 24px;
   width: 100%;
-  max-width: 300px;
+  max-width: 90%;
   box-shadow: 0px 3px 6px #00000029;
+
+  @media (min-width: ${BREAKPOINT.MD}) {
+    max-width: 300px;
+    adding: 32px 24px;
+  }
 `;
 
 const Title = styled.div`
