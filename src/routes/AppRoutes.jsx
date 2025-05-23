@@ -2,7 +2,7 @@ import { Routes, Route, Navigate } from "react-router";
 import { useAuth } from "../hooks/useAuth";
 import Login from "../pages/Login";
 import Dashboard from "../pages/Dashboard";
-import Layout from "../layouts/layout";
+import Layout from "../layouts/Layout";
 
 const AppRoutes = () => {
   const { isLoggedIn } = useAuth();
